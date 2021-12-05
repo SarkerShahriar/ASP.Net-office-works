@@ -1,0 +1,99 @@
+var DataNo = "";
+
+                        var InvType = master.InventoryType = null;
+
+                        var CompanyName = CompanyShortName.CompanyName(companyUnitId);
+
+                        var DataCount = 0;
+
+                        string lastData = null;
+
+                        DataCount = db.Inv_ReceiveGRNMas.AsNoTracking().Where(x => x.Com_LCIndentMas.Inv_RequisitionMas.CompanyUnitId == companyUnitId && x.InventoryType == InvType).Count();
+
+                        var checkyear = DateTime.Parse(master.GRNDate.ToString()).Year;
+
+                        var LCData = db.Com_LCIndentMas.SingleOrDefault(x => x.Id == master.Com_LCIndentMasId);
+
+                        if (LCData.ProcType == 2)
+                            {
+                            if (DataCount > 0)
+                                {
+                                lastData = (from yy in db.Inv_ReceiveGRNMas
+                                            join xx in db.Com_LCIndentMas on yy.Com_LCIndentMasId equals xx.Id
+                                            join zz in db.Inv_RequisitionMas on xx.Inv_RequisitionMasId equals zz.Id
+                                            where zz.CompanyUnitId == companyUnitId
+                                            && xx.ProcType == 2
+                                            && yy.GRNDate.Value.Year == checkyear
+                                            && yy.InventoryType == InvType
+                                            select new
+                                                {
+                                                InvGRNId = yy.Id,
+                                                GrnNo = yy.GRNNo
+                                                }).OrderByDescending(x => x.InvGRNId).Select(x => x.GrnNo).FirstOrDefault();
+                                }
+                            }
+                        else
+                            {
+                            if (DataCount > 0)
+                                {
+                                lastData = (from yy in db.Inv_ReceiveGRNMas
+                                            join xx in db.Com_LCIndentMas on yy.Com_LCIndentMasId equals xx.Id
+                                            join zz in db.Inv_RequisitionMas on xx.Inv_RequisitionMasId equals zz.Id
+                                            where zz.CompanyUnitId == companyUnitId
+                                            && xx.ProcType == 1
+                                            && yy.GRNDate.Value.Year == checkyear
+                                            && yy.InventoryType == InvType
+                                            select new
+                                                {
+                                                InvGRNId = yy.Id,
+                                                GrnNo = yy.GRNNo
+                                                }).OrderByDescending(x => x.InvGRNId).Select(x => x.GrnNo).FirstOrDefault();
+                                }
+
+                            }
+
+
+                        var str = LCData.ProcType == 2 ? "/GRN/LP/" : "/GRN/FP/";
+
+
+                        int output = 0;
+
+                        string ShortCompanyName = !String.IsNullOrWhiteSpace(lastData) && lastData.Length >= 4 ? lastData.Substring(0, 4) : lastData;
+
+                        if (lastData != null)
+                            {
+                            if (ShortCompanyName == CompanyName)
+                                {
+                                output = Convert.ToInt32(lastData.Replace(CompanyName + str + checkyear + "/", ""));
+                                }
+                            else
+                                {
+                                output = 0;
+                                }
+
+                            }
+                        else
+                            {
+                            output = 0;
+                            }
+
+
+
+                        var InvNum = 0;
+
+                        InvNum = InvNum + output + 1;
+
+                        var setValue = (InvNum.ToString()).Length;
+
+                        if (setValue == 1)
+                            {
+                            DataNo = CompanyName + str + checkyear + "/" + "00" + InvNum;
+                            }
+                        else if (setValue == 2)
+                            {
+                            DataNo = CompanyName + str + checkyear + "/" + "00" + InvNum;
+                            }
+                        else
+                            {
+                            DataNo = CompanyName + str + checkyear + "/" + InvNum;
+                            }
