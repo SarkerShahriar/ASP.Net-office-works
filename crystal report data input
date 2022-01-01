@@ -1,0 +1,99 @@
+if (paymenttype == 0)
+                {
+                FactoryData = (from  DocSubMas in db.DocSubmissionMas 
+                               join DocSubDet in db.DocSubmissionDet on DocSubMas.Id equals DocSubDet.DocSubmissionMasId
+                               join invComDet in db.InvoiceCommDet on DocSubDet.InvoiceCommMasId equals invComDet.InvoiceCommMasId
+                               join InvComFacMas in db.InvoiceCommFactMas on invComDet.InvoiceCommFactMasId equals InvComFacMas.Id
+
+                               where DocSubMas.Id == commissiondata.DocSubmissionMasId
+
+                               select new
+                                   {
+                                   InvComFacMas = InvComFacMas.Id,
+                                   FactoryInvNo = InvComFacMas.InvoiceNoFact,
+
+                                   FactoryQTY = (from invcommfacmas in db.InvoiceCommFactMas
+                                                 join invcommfacdet in db.InvoiceCommFactDet on invcommfacmas.Id equals invcommfacdet.InvoiceCommFactMasId
+                                                 join invcommfactdetdet in db.InvoiceCommFactDetDet on invcommfacdet.Id equals invcommfactdetdet.InvoiceCommFactDetId
+                                                 join exfactoryshipdet in db.ExFactoryShipDet on invcommfactdetdet.ExFactoryShipDetId equals exfactoryshipdet.Id
+                                                 where invcommfacmas.Id == InvComFacMas.Id
+                                                 select new
+                                                     {
+                                                     QTY = exfactoryshipdet.ShipQuantity
+                                                     }).Select(m => m.QTY).Sum(),
+
+                                   FactoryValue = (from invcommfacmas in db.InvoiceCommFactMas
+                                                   join invcommfacdet in db.InvoiceCommFactDet on invcommfacmas.Id equals invcommfacdet.InvoiceCommFactMasId
+                                                   where invcommfacmas.Id == InvComFacMas.Id
+                                                   select new
+                                                       {
+                                                       invcommfacdet = invcommfacdet.Id,
+                                                       Price = invcommfacdet.InvoiceTotalAmt
+                                                       }).Distinct().Select(m => m.Price).Sum(),
+
+                                   FactoryName = InvComFacMas.Supplier.Name,
+                                   Currency = commissiondata.ConvertRate
+                                   }).Distinct().ToList();
+                
+
+
+
+                foreach (var item in FactoryData)
+                    {
+                    ds.DataTableFacInv.AddDataTableFacInvRow(
+                        item.FactoryInvNo,
+                        //0,
+                        item.FactoryQTY,
+                        //TotalFactQty,
+                        //item.FactoryValue ?? 0,
+                        //item.FactoryValue,
+                        item.FactoryValue,
+                        //Convert.ToDecimal(discountFamount),
+                        item.FactoryName,
+                        item.Currency
+                    );
+                    }               
+
+                RdlInvdata = (from DocSubMas in db.DocSubmissionMas 
+                              join DocSubDet in db.DocSubmissionDet on DocSubMas.Id equals DocSubDet.DocSubmissionMasId
+                              join invComDet in db.InvoiceCommDet on DocSubDet.InvoiceCommMasId equals invComDet.InvoiceCommMasId
+
+                              where DocSubMas.Id == commissiondata.DocSubmissionMasId
+                              select new
+                                  {
+                                  InvoiceNo = invComDet.InvoiceCommMas.InvoiceNo,
+                                  RDLQty = (from InvCommMas in db.InvoiceCommMas
+                                            join InvComDet in db.InvoiceCommDet on InvCommMas.Id equals InvComDet.InvoiceCommMasId
+                                            join InvComDetDet in db.InvoiceCommDetDet on InvComDet.Id equals InvComDetDet.InvoiceCommDetId
+                                            where InvCommMas.Id == invComDet.InvoiceCommMas.Id
+                                            select new
+                                                {
+                                                RDLQty = InvComDetDet.ShipQty
+                                                }).Select(m => m.RDLQty).Sum(),
+
+                                  RDLValue = (from InvCommMas in db.InvoiceCommMas
+                                              join InvComDet in db.InvoiceCommDet on InvCommMas.Id equals InvComDet.InvoiceCommMasId
+                                              join InvComDetDet in db.InvoiceCommDetDet on InvComDet.Id equals InvComDetDet.InvoiceCommDetId
+                                              where InvCommMas.Id == invComDet.InvoiceCommMas.Id
+                                              select new
+                                                  {
+                                                  InvComDetId = InvComDet.Id,
+                                                  RDLvalue = InvComDet.InvoiceRDLTotalAmt
+                                                  }).Distinct().Select(m => m.RDLvalue).Sum(),
+                                  }).Distinct().ToList();
+               
+                foreach (var item in RdlInvdata)
+                    {
+                    //int Rcheck = item.RDLInvoiceId;
+                    //var FValue = data.FactoryValue;
+                    //var RlessDis = db.InvoiceCommMas.Where(x => x.Id == Rcheck).SingleOrDefault();
+                    //var Rdiscount = data.RDLValue * (RlessDis.LessDiscount / 100);
+                    //var discountRamount = data.RDLValue - Rdiscount;
+                    //var discountRamount = item.RDLValue - RlessDis.LessDiscount;
+
+                    ds.DataTableRDLInv.AddDataTableRDLInvRow(
+                        item.RDLQty,
+                        item.RDLValue,
+                        item.InvoiceNo
+                    );
+                    }
