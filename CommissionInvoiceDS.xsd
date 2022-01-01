@@ -1,0 +1,75 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="CommissionInvoiceDS" targetNamespace="http://tempuri.org/CommissionInvoiceDS.xsd" xmlns:mstns="http://tempuri.org/CommissionInvoiceDS.xsd" xmlns="http://tempuri.org/CommissionInvoiceDS.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="CommissionInvoiceDS" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="CommissionInvoiceDS" msprop:Generator_UserDSName="CommissionInvoiceDS">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="ReportHeader" msprop:Generator_TableClassName="ReportHeaderDataTable" msprop:Generator_TableVarName="tableReportHeader" msprop:Generator_RowChangedName="ReportHeaderRowChanged" msprop:Generator_TablePropName="ReportHeader" msprop:Generator_RowDeletingName="ReportHeaderRowDeleting" msprop:Generator_RowChangingName="ReportHeaderRowChanging" msprop:Generator_RowEvHandlerName="ReportHeaderRowChangeEventHandler" msprop:Generator_RowDeletedName="ReportHeaderRowDeleted" msprop:Generator_RowClassName="ReportHeaderRow" msprop:Generator_UserTableName="ReportHeader" msprop:Generator_RowEvArgName="ReportHeaderRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="LcNo" msprop:Generator_ColumnVarNameInTable="columnLcNo" msprop:Generator_ColumnPropNameInRow="LcNo" msprop:Generator_ColumnPropNameInTable="LcNoColumn" msprop:Generator_UserColumnName="LcNo" type="xs:string" minOccurs="0" />
+              <xs:element name="BuyerName" msprop:Generator_ColumnVarNameInTable="columnBuyerName" msprop:Generator_ColumnPropNameInRow="BuyerName" msprop:Generator_ColumnPropNameInTable="BuyerNameColumn" msprop:Generator_UserColumnName="BuyerName" type="xs:string" minOccurs="0" />
+              <xs:element name="BuyerBank" msprop:Generator_ColumnVarNameInTable="columnBuyerBank" msprop:Generator_ColumnPropNameInRow="BuyerBank" msprop:Generator_ColumnPropNameInTable="BuyerBankColumn" msprop:Generator_UserColumnName="BuyerBank" type="xs:string" minOccurs="0" />
+              <xs:element name="RefNo" msprop:Generator_ColumnVarNameInTable="columnRefNo" msprop:Generator_ColumnPropNameInRow="RefNo" msprop:Generator_ColumnPropNameInTable="RefNoColumn" msprop:Generator_UserColumnName="RefNo" type="xs:string" minOccurs="0" />
+              <xs:element name="Date" msprop:Generator_ColumnVarNameInTable="columnDate" msprop:Generator_ColumnPropNameInRow="Date" msprop:Generator_ColumnPropNameInTable="DateColumn" msprop:Generator_UserColumnName="Date" type="xs:string" minOccurs="0" />
+              <xs:element name="FDBCNo" msprop:Generator_ColumnVarNameInTable="columnFDBCNo" msprop:Generator_ColumnPropNameInRow="FDBCNo" msprop:Generator_ColumnPropNameInTable="FDBCNoColumn" msprop:Generator_UserColumnName="FDBCNo" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="DataTableRDLInv" msprop:Generator_TableClassName="DataTableRDLInvDataTable" msprop:Generator_TableVarName="tableDataTableRDLInv" msprop:Generator_RowChangedName="DataTableRDLInvRowChanged" msprop:Generator_TablePropName="DataTableRDLInv" msprop:Generator_RowDeletingName="DataTableRDLInvRowDeleting" msprop:Generator_RowChangingName="DataTableRDLInvRowChanging" msprop:Generator_RowEvHandlerName="DataTableRDLInvRowChangeEventHandler" msprop:Generator_RowDeletedName="DataTableRDLInvRowDeleted" msprop:Generator_RowClassName="DataTableRDLInvRow" msprop:Generator_UserTableName="DataTableRDLInv" msprop:Generator_RowEvArgName="DataTableRDLInvRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="RDLQty" msprop:Generator_ColumnVarNameInTable="columnRDLQty" msprop:Generator_ColumnPropNameInRow="RDLQty" msprop:Generator_ColumnPropNameInTable="RDLQtyColumn" msprop:Generator_UserColumnName="RDLQty" type="xs:int" minOccurs="0" />
+              <xs:element name="RDLValue" msprop:Generator_ColumnVarNameInTable="columnRDLValue" msprop:Generator_ColumnPropNameInRow="RDLValue" msprop:Generator_ColumnPropNameInTable="RDLValueColumn" msprop:Generator_UserColumnName="RDLValue" type="xs:decimal" minOccurs="0" />
+              <xs:element name="RDLInvNo" msprop:Generator_ColumnVarNameInTable="columnRDLInvNo" msprop:Generator_ColumnPropNameInRow="RDLInvNo" msprop:Generator_ColumnPropNameInTable="RDLInvNoColumn" msprop:Generator_UserColumnName="RDLInvNo" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="DataTableTotal" msprop:Generator_TableClassName="DataTableTotalDataTable" msprop:Generator_TableVarName="tableDataTableTotal" msprop:Generator_RowChangedName="DataTableTotalRowChanged" msprop:Generator_TablePropName="DataTableTotal" msprop:Generator_RowDeletingName="DataTableTotalRowDeleting" msprop:Generator_RowChangingName="DataTableTotalRowChanging" msprop:Generator_RowEvHandlerName="DataTableTotalRowChangeEventHandler" msprop:Generator_RowDeletedName="DataTableTotalRowDeleted" msprop:Generator_RowClassName="DataTableTotalRow" msprop:Generator_UserTableName="DataTableTotal" msprop:Generator_RowEvArgName="DataTableTotalRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="TotalRDLValue" msprop:Generator_ColumnVarNameInTable="columnTotalRDLValue" msprop:Generator_ColumnPropNameInRow="TotalRDLValue" msprop:Generator_ColumnPropNameInTable="TotalRDLValueColumn" msprop:Generator_UserColumnName="TotalRDLValue" type="xs:decimal" minOccurs="0" />
+              <xs:element name="TotalFactoryValue" msprop:Generator_ColumnVarNameInTable="columnTotalFactoryValue" msprop:Generator_ColumnPropNameInRow="TotalFactoryValue" msprop:Generator_ColumnPropNameInTable="TotalFactoryValueColumn" msprop:Generator_UserColumnName="TotalFactoryValue" type="xs:decimal" minOccurs="0" />
+              <xs:element name="GrandTotal" msprop:Generator_ColumnVarNameInTable="columnGrandTotal" msprop:Generator_ColumnPropNameInRow="GrandTotal" msprop:Generator_ColumnPropNameInTable="GrandTotalColumn" msprop:Generator_UserColumnName="GrandTotal" type="xs:decimal" minOccurs="0" />
+              <xs:element name="ExchangeRate" msprop:Generator_ColumnVarNameInTable="columnExchangeRate" msprop:Generator_ColumnPropNameInRow="ExchangeRate" msprop:Generator_ColumnPropNameInTable="ExchangeRateColumn" msprop:Generator_UserColumnName="ExchangeRate" type="xs:decimal" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="FooterDetails" msprop:Generator_TableClassName="FooterDetailsDataTable" msprop:Generator_TableVarName="tableFooterDetails" msprop:Generator_TablePropName="FooterDetails" msprop:Generator_RowDeletingName="FooterDetailsRowDeleting" msprop:Generator_RowChangingName="FooterDetailsRowChanging" msprop:Generator_RowEvHandlerName="FooterDetailsRowChangeEventHandler" msprop:Generator_RowDeletedName="FooterDetailsRowDeleted" msprop:Generator_UserTableName="FooterDetails" msprop:Generator_RowChangedName="FooterDetailsRowChanged" msprop:Generator_RowEvArgName="FooterDetailsRowChangeEvent" msprop:Generator_RowClassName="FooterDetailsRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="GeneratedBy" msprop:Generator_ColumnVarNameInTable="columnGeneratedBy" msprop:Generator_ColumnPropNameInRow="GeneratedBy" msprop:Generator_ColumnPropNameInTable="GeneratedByColumn" msprop:Generator_UserColumnName="GeneratedBy" type="xs:string" minOccurs="0" />
+              <xs:element name="GeneratedDate" msprop:Generator_ColumnVarNameInTable="columnGeneratedDate" msprop:Generator_ColumnPropNameInRow="GeneratedDate" msprop:Generator_ColumnPropNameInTable="GeneratedDateColumn" msprop:Generator_UserColumnName="GeneratedDate" type="xs:dateTime" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="DataTableFacInv" msprop:Generator_TableClassName="DataTableFacInvDataTable" msprop:Generator_TableVarName="tableDataTableFacInv" msprop:Generator_RowChangedName="DataTableFacInvRowChanged" msprop:Generator_TablePropName="DataTableFacInv" msprop:Generator_RowDeletingName="DataTableFacInvRowDeleting" msprop:Generator_RowChangingName="DataTableFacInvRowChanging" msprop:Generator_RowEvHandlerName="DataTableFacInvRowChangeEventHandler" msprop:Generator_RowDeletedName="DataTableFacInvRowDeleted" msprop:Generator_RowClassName="DataTableFacInvRow" msprop:Generator_UserTableName="DataTableFacInv" msprop:Generator_RowEvArgName="DataTableFacInvRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="FactoryInvoiceNo" msprop:Generator_ColumnVarNameInTable="columnFactoryInvoiceNo" msprop:Generator_ColumnPropNameInRow="FactoryInvoiceNo" msprop:Generator_ColumnPropNameInTable="FactoryInvoiceNoColumn" msprop:Generator_UserColumnName="FactoryInvoiceNo" type="xs:string" minOccurs="0" />
+              <xs:element name="FactoryQty" msprop:Generator_ColumnVarNameInTable="columnFactoryQty" msprop:Generator_ColumnPropNameInRow="FactoryQty" msprop:Generator_ColumnPropNameInTable="FactoryQtyColumn" msprop:Generator_UserColumnName="FactoryQty" type="xs:int" minOccurs="0" />
+              <xs:element name="FactoryValue" msprop:Generator_ColumnVarNameInTable="columnFactoryValue" msprop:Generator_ColumnPropNameInRow="FactoryValue" msprop:Generator_ColumnPropNameInTable="FactoryValueColumn" msprop:Generator_UserColumnName="FactoryValue" type="xs:decimal" minOccurs="0" />
+              <xs:element name="FacName" msprop:Generator_ColumnVarNameInTable="columnFacName" msprop:Generator_ColumnPropNameInRow="FacName" msprop:Generator_ColumnPropNameInTable="FacNameColumn" msprop:Generator_UserColumnName="FacName" type="xs:string" minOccurs="0" />
+              <xs:element name="Covertrate" msprop:Generator_ColumnVarNameInTable="columnCovertrate" msprop:Generator_ColumnPropNameInRow="Covertrate" msprop:Generator_ColumnPropNameInTable="CovertrateColumn" msprop:Generator_UserColumnName="Covertrate" type="xs:decimal" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="FactoryName" msprop:Generator_TableClassName="FactoryNameDataTable" msprop:Generator_TableVarName="tableFactoryName" msprop:Generator_RowChangedName="FactoryNameRowChanged" msprop:Generator_TablePropName="FactoryName" msprop:Generator_RowDeletingName="FactoryNameRowDeleting" msprop:Generator_RowChangingName="FactoryNameRowChanging" msprop:Generator_RowEvHandlerName="FactoryNameRowChangeEventHandler" msprop:Generator_RowDeletedName="FactoryNameRowDeleted" msprop:Generator_RowClassName="FactoryNameRow" msprop:Generator_UserTableName="FactoryName" msprop:Generator_RowEvArgName="FactoryNameRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="FacName" msprop:Generator_ColumnVarNameInTable="columnFacName" msprop:Generator_ColumnPropNameInRow="FacName" msprop:Generator_ColumnPropNameInTable="FacNameColumn" msprop:Generator_UserColumnName="FacName" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>
