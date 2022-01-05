@@ -1,0 +1,14 @@
+var xx = item.ProceedRealizationMasId;
+
+                                
+
+                                var banksname = (from commRealization in db.CommissionRealization
+                                                 join banks in db.Bank on commRealization.BankId equals banks.Id
+                                                 where commRealization.BankId == banks.Id && commRealization.ProceedRealizationMasId == xx
+                                                 select new
+                                                     {
+                                                     bankName = banks.Name,
+                                                     }).FirstOrDefault();
+                                
+                            }
+                            <label>@banksname.bankName</label>
